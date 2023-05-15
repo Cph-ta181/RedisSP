@@ -7,3 +7,13 @@ In this docker-compose file 4 servers are being created, 1 Master, 2 Replicas, a
 
 ## Configuration 5
 ### Demonstrate publish-subscribe pattern
+The publisher-Subscriber setup is made with a redis client in a .Net application. Two subscribers is created who listens to two different channels representating eachothers "status" channels. When a player starts a game they publish this status update to their own channel and other people subscribing to that channel will get the message. The implementation can be viewed on lines 6-19 in the file redis_5/PubSubCRUD.cs
+
+## CRUD operations in redis
+CRUD operations have been implemented with the Configuration 5 task. As in the configuration 5 task the implementation is made with StackExchange.Redis implementation in .NET.
+To implement these operations 3 methods are used.
+- StringGet(key) which gets the value associated with the key
+- StringSet(key, value) which sets the key/value pair in the database
+- KeyDelete(key) which deletes the specified key from the database
+
+Implementation of these operations can be viewed on lines 20-48 in the file redis_5/PubSubCRUD.cs
